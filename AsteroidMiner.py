@@ -1074,7 +1074,7 @@ while running:
         elif event.type == pygame.JOYBUTTONDOWN:
             if event.button in [7, 9]:
                 pause()
-            elif event.button in [8, 10]:
+            elif event.button in [6, 10]:
                 pygame.quit()
                 sys.exit()
         
@@ -1206,7 +1206,7 @@ while running:
         all_sprites.add(expl)
         #makes a powerup appear
         if hit.size <= 50:
-            if random.random() > 0.85:
+            if random.random() > 0.88:
                 pow = Pow(hit.rect.center)
                 powerups.add(pow)
                 all_sprites.add(powerups)
