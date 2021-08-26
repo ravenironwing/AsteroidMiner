@@ -42,7 +42,7 @@ joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_coun
 infoObject = pygame.display.Info() #creates an info object to detect native screen resolution.
 WIDTH = 960
 HEIGHT = 540
-flags = pygame.SCALED | pygame.RESIZABLE
+flags = pygame.SCALED | pygame.RESIZABLE | pygame.FULLSCREEN
 screen = pygame.display.set_mode((WIDTH, HEIGHT), flags)
 pygame.display.set_caption("Asteroid Miner!")
 clock = pygame.time.Clock()
@@ -478,7 +478,7 @@ class Player(pygame.sprite.Sprite):
         if (now - self.last_shot > self.shoot_delay) and self.energy > 0:
             self.last_shot = now
             shoot_sound.play()
-            bomb = Bombs(self.rect.centerx, self.rect.top - 15, self.speedx, self.speedy)
+            bomb = Bombs(self.rect.centerx, self.rect.top + self.speedy - 20, self.speedx, self.speedy)
             all_sprites.add(bomb)
             bombs.add(bomb)
             bullets.add(bomb)
